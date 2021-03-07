@@ -46,6 +46,25 @@
             }
             return false;
         }
+
+        public function addPengaduan($nik, $isi_laporan,$tgl_pengaduan, $foto, $status){
+            $status = 0;
+            $nikSession = $_SESSION['nik'];
+            $tgl = date('y-m-d',strtotime($tgl_laporan));
+            $result = $this->conn->prepare("INSERT INTO pengaduan (nik, isi_laporan, tgl_pengaduan, foto, status) VALUES (:nik, :isi_laporan, :tgl_pengaduan,:foto, :status)");
+
+            
+            $result->bindParam(':nik', $nikSession);
+            $result->bindParam(':isi_laporan', $isi_laporan);
+            $result->bindParam(':tgl_pengaduan', $tgl);
+            $result->bindParam(':foto', $foto);
+            $result->bindParam(':status', $status);
+
+            if($result->execute()){
+                return true;
+            }
+            return var_dump($result);
+        }
     }
 
 ?>

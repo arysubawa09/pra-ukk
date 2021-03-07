@@ -15,7 +15,26 @@ $userclass = new userclass($conn);
     <title>Document</title>
 </head>
 <body>
-    <p>Website Pengaduan Masyarakat</p>
+    <div class="header"> 
+        <p>Website Pengaduan Masyarakat</p>
+    </div>
     <p><a href="../action/logout-masyarakat.php">LOGOUT</a></p>
+    <div class="content">
+        <form action="../action/proses-pengaduan-masyarakat.php" method="POST" enctype="multipart/form-data">
+            <p>Laporan Pengaduan</p>
+            <textarea name="pengaduan"  cols="60" rows="10"></textarea>
+            <br>
+            <br>
+            <p>Tanggal Pengaduan</p>
+            <input type="date" name="tanggal-pengaduan" required>
+            <br>
+            <br>
+            <p> Bukti Foto Laporan </p>
+            <br>
+        <input type="file" name="bukti" accept="image/*">
+        <br><br>
+        <input type="submit" value="kirim" name="kirim">
+        </form>
+    </div>
 </body>
 </html>
