@@ -18,17 +18,23 @@
         </div>
     </div>
     <div class="content">
-        <form action="../action/proses-daftar-masyarakat.php" method = "POST">
-            <input type="text" maxlength="16" placeholder="Masukan Nik Anda" name="nik" required>
+        <form action="../action/proses-daftar-petugas.php" method = "POST">
+            <input type="text"  placeholder="Masukan Nama " name="nama" required>
             <br>
             <br>
-            <input type="text" placeholder="Masukan Nama Anda" name="nama" required>
+            <input type="text" placeholder="Masukan Username" name="username" required>
             <br>
             <br>
             <input type="password" placeholder="Masukan Password Anda" name="password" required>
             <br>
             <br>
             <input type="text"  maxlength="13" placeholder="Masukan No.Telpon Anda" name="telpon" required>
+            <br>
+            <br>
+            <select name="level" >
+                <option value="petugas">Petugas</option>
+                <option value="admin">Admin</option>
+            </select>
             <br>
             <br>
             <input type="submit" name="daftar" value="daftar" >

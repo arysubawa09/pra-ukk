@@ -31,7 +31,7 @@ $userclass = new userclass($conn);
             <br>
             <p> Bukti Foto Laporan </p>
             <br>
-        <input type="file" name="bukti" accept="image/*">
+        <input type="file" name="gambar" accept = "image/*" >
         <br><br>
         <input type="submit" value="kirim" name="kirim">
         </form>

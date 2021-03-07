@@ -6,33 +6,27 @@
     $userclass = new userclass($conn);
 
 
+    $isi_laporan = $_POST['pengaduan'];
+    $tgl_pengaduan = $_POST['tanggal-pengaduan'];
+    $nama_file = $_FILES['gambar']['name'];
+    $source = $_FILES['gambar']['tmp_name'];
+    $folder = '../masyarakat/bukti-laporan/';
+    
+
     if(isset($_POST['kirim'])){
-  
-        $ukuran = $_FILES['bukti']['size'];
-        $isi_laporan = $_POST['pengaduan'];
-        $tgl_pengaduan = $_POST['tanggal-pengaduan'];
-        $foto = $_FILES['bukti'];
-        $nama_file = $_FILES['bukti']['name'];
-   
 
-        if($foto == "image/jpeg" || $foto == "image/png"){
+        move_uploaded_file($source, $folder.$nama_file);
 
-            if($ukuran < 10000){
+        $pengaduan = $userclass->addPengaduan($isi_laporan,$tgl_pengaduan,$nama_file);
 
-                move_uploaded_file('/bukti-laporan'.$nama_file);
-
-                    $pengaduan = $userclass->addPengaduan($nik,$isi_laporan,$tgl_pengaduan,$foto,$status);
-
-                    if($pengaduan){
-
-                        echo "<script>alert('Laporan Berhasil Terkirim')</script>";
-                    }else{
-                        
-                        //echo "<script>alert('Nik dan Password Invalid')";
-                    }
-
-                }
-            }
+        if($pengaduan){
+                echo "<script>alert('Laporan Berhasil Terkirim')</script>";
         }
-        
+        else{
+                echo "<script>alert('Nik dan Password Invalid')";
+        }
+
+    }
+    echo $_SESSION['nik'];
+    
 ?>
