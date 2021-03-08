@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="content">
-        <form action="action/proses-login-admin.php" method = "POST">
+        <form action="../action/proses-login-petugas.php" method = "POST">
             <input type="text" placeholder="Masukan Username" name="username" required>
             <br>
             <br>
@@ -31,7 +31,7 @@
             <input type="submit" name="batal" value="batal" >
 
             <br>
-            <p>Belum Memiliki Akun? <span><a href="masyarakat/form-daftar-user.php">Silahkan Daftar</a></span></p>
+            <p>Belum Memiliki Akun? <span><a href="../admin/form-daftar-petugas.php">Silahkan Daftar</a></span></p>
 
         </form>
     </div>

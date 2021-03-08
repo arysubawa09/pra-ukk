@@ -68,10 +68,23 @@
 
         public function loginAdmin($username, $password){
             
+            $cekLogin = $this->conn->query("SELECT * FROM petugas WHERE username = '$username'");
+            if($cekLogin->rowCount() > 0){
+              $user  = $cekLogin->fetch(PDO::FETCH_OBJ);
+
+              $passwordUser = $user->password;
+
+              if(password_verify($password, $passwordUser)){
+                $_SESSION['nama_petugas'] = $user->nama_petugas;
+
+                return true;
+              }
+              
+            }
+                return false;
         }
 
         public function addPetugas($nama_petugas, $username, $password, $telpon, $level){
-            $level = 'petugas' && 'admin';
             $cekUsername = $this->conn->query("SELECT * FROM petugas WHERE username = '$username'");
             $hashpassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -81,17 +94,17 @@
 
                 $result->bindParam(':nama_petugas', $nama_petugas);
                 $result->bindParam(':username', $username);
-                $result->bindParam(':username', $hashpassword);
+                $result->bindParam(':password', $hashpassword);
                 $result->bindParam(':telpon', $telpon);
                 $result->bindParam(':level', $level);
 
                 if($result->execute()){
 
-                    return true;
+                    return 'true';
                 }
                  
             }
-            return false;
+            return 'false';
         }
     }
 

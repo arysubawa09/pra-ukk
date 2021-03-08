@@ -25,7 +25,7 @@
             <input type="text" placeholder="Masukan Username" name="username" required>
             <br>
             <br>
-            <input type="password" placeholder="Masukan Password Anda" name="password" required>
+            <input type="password" placeholder="Masukan Password " name="password" required>
             <br>
             <br>
             <input type="text"  maxlength="13" placeholder="Masukan No.Telpon Anda" name="telpon" required>
@@ -41,7 +41,7 @@
             <input type="submit" name="batal" value="batal" >
             
             <br>
-            <p>Sudah Memiliki Akun? <span><a href="../index.php">Silahkan Login</a></span></p>
+            <p>Sudah Memiliki Akun? <span><a href="../admin/index.php">Silahkan Login</a></span></p>
 
         </form>
     </div>

@@ -9,7 +9,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
     $telpon = $_POST['telpon'];
-    $level = $_GET['level'];
+    $level = $_POST['level'];
 
     if(isset($_POST['daftar'])){
 
@@ -17,7 +17,7 @@
 
         if($daftar){
 
-                echo "<script>alert('daftar berhasil');document.location.href='../admin/index.php'</script>"; 
+                echo "<script>alert('daftar berhasil');document.location.href='/admin/index.php'</script>"; 
                 
         }else{
         
@@ -26,5 +26,4 @@
         }
 
     }
-    echo $level;
 ?>
