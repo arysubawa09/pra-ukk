@@ -31,8 +31,7 @@
             <input type="submit" name="batal" value="batal" >
 
             <br>
-            <p>Belum Memiliki Akun? <span><a href="../admin/form-daftar-petugas.php">Silahkan Daftar</a></span></p>
-
+            
         </form>
     </div>
 </body>

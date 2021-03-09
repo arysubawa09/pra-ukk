@@ -3,6 +3,8 @@
     require __DIR__ . "/../class/userclass.php";
 
     $userclass = new userclass($conn);
+    $id_petugas = $_SESSION['id_petugas'];
+    $datapetugas = $userclass->datauser($id_petugas);
 ?>
 
 <!DOCTYPE html>
@@ -20,28 +22,26 @@
         </div>
     </div>
     <div class="content">
-        <form action="../action/proses-daftar-petugas.php" method = "POST">
-            <input type="text"  placeholder="Masukan Nama " name="nama" required>
+        <form action="../action/proses-update-petugas.php" method = "POST">
+            <input type="text"  value="<?=$datapetugas->nama_petugas?>" name="nama" required>
             <br>
             <br>
-            <input type="text" placeholder="Masukan Username" name="username" required>
+            <input type="text" value="<?=$datapetugas->username?>" name="username" required>
             <br>
             <br>
-            <input type="password" placeholder="Masukan Password " name="password" required>
+            <input type="text" maxleght="13" value="<?=$datapetugas->telpon?>" name="telpon" required>
             <br>
             <br>
-            <input type="text"  maxlength="13" placeholder="Masukan No.Telpon" name="telpon" required>
             <br>
-            <br>
-            <select name="level" >
+            <select name="level">
                 <option value="petugas">Petugas</option>
                 <option value="admin">Admin</option>
             </select>
             <br>
             <br>
-            <input type="submit" name="daftar" value="daftar" >
+            <input type="submit" name="edit" value="edit" >
             <button name="kembali"><a href="dashboard-admin.php">kembali</a></button>
-            
+            <input type="hidden" name="id_petugas" value="<?= $datapetugas->id_petugas?>">
             <br>
             
 

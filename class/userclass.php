@@ -66,16 +66,27 @@
             return 'false';
         }
 
-        public function loginAdmin($username, $password){
+        public function datauser($id_petugas){
+            $data = $this->conn->query("SELECT * FROM petugas WHERE id_petugas = '$id_petugas' LIMIT 1");
+
+            $data = $data->fetch(PDO::FETCH_OBJ);
+
+            return $data;
+
+        }
+
+        public function loginPetugas($username, $password){
             
             $cekLogin = $this->conn->query("SELECT * FROM petugas WHERE username = '$username'");
             if($cekLogin->rowCount() > 0){
+
               $user  = $cekLogin->fetch(PDO::FETCH_OBJ);
 
               $passwordUser = $user->password;
 
               if(password_verify($password, $passwordUser)){
-                $_SESSION['nama_petugas'] = $user->nama_petugas;
+                $_SESSION['level'] = $user->level;
+                $_SESSION['id_petugas'] = $user->id_petugas;
 
                 return true;
               }
@@ -105,6 +116,64 @@
                  
             }
             return 'false';
+        }
+
+        public function dataPetugas(){
+            $id_petugas = $_SESSION['id_petugas'];
+            $user = $this->conn->query("SELECT * FROM petugas WHERE id_petugas = '$id_petugas' LIMIT 1 ");
+
+            if($user->rowCount() > 0 ){
+
+                $datauser = $user->fetch(PDO::FETCH_OBJ);
+                
+                return $datauser;
+            }
+
+            return false;
+        }
+
+        public function dataAll(){
+            $result = $this->conn->query("SELECT * FROM petugas");
+
+            if($result->rowCount() > 0){
+
+                while($rows = $result->fetch(PDO::FETCH_OBJ))
+                    $data[] = $rows;
+
+                    return $data;
+            }
+                    return false;
+
+        }
+
+        public function deletePetugas($id_petugas){
+            $del = $this->conn->prepare("DELETE FROM petugas WHERE id_petugas = :id_petugas");
+
+            $del->bindParam(':id_petugas', $id_petugas);
+
+            if($del->execute()){
+
+                return true;
+            }
+                return false;
+        }
+
+
+        public function updatePetugas($id_petugas, $nama_petugas, $username, $telpon, $level){
+            $result = $this->conn->prepare("UPDATE petugas SET nama_petugas = :nama_petugas , username = :username , telpon = :telpon, level = :level WHERE id_petugas = :id_petugas");
+
+            $result->bindParam(':id_petugas', $id_petugas);
+            $result->bindParam(':nama_petugas', $nama_petugas);
+            $result->bindParam(':username', $username);
+            $result->bindParam(':telpon', $telpon);
+            $result->bindParam(':level', $level);
+
+            if($result->execute()){
+
+                return true;
+            }
+
+                return false;
         }
     }
 
