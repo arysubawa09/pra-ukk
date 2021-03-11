@@ -3,7 +3,7 @@
     require __DIR__ . "/../class/userclass.php";
 
     $userclass = new userclass($conn);
-    $datapengaduan = $userclass->dataPengaduan();
+    $datatanggapan = $userclass->viewTanggapan();
     $datauser = $userclass->dataPetugas();
 
 ?>
@@ -21,39 +21,36 @@
         <ul>
             <li><a href="dashboard-petugas.php"> Data Pengaduan</a></li>
             <li><a href="view-data-terkirim.php">Data Terkirim</a></li>
-            <li><a href="generate-laporan.php">Generate Laporan</a></li>
         </ul>
     </div>
     <div class="konten">
             <table callspan ="2" cellpadding = "5" border="2" text-align = "center">
                 <th>No</th>
-                <th>Nik</th>
-                <th>Isi Laporan</th>
-                <th>Tanggal Pengaduan</th>
-                <th>Bukti Laporan</th>
+                <th>id laporan</th>
+                <th>Tanggal Tanggapan</th>
+                <th>Tanggapan</th>
+                <th>id_petugas</th>
                 <th>Status</th>
                 <th>Aksi</th>
             
                 <?php
                     $no = 1;
-                    foreach($datapengaduan as $data){
-                        $nik = $data->nik;
-                        $isi_laporan = $data->isi_laporan;
-                        $tgl_laporan = $data->tgl_pengaduan;
-                        $bukti = $data->nama_file;
+                    foreach($datatanggapan as $data){
+                        $laporan= $data->id_pengaduan;
+                        $tgl_tanggapan = $data->tgl_tanggapan;
+                        $tanggapan = $data->tanggapan;
+                        $petugas = $data->id_petugas;
                         $status = $data->status;
                 ?>
                     <tr>
                         <td><?=$no++?></td>
-                        <td><?=$nik?></td>                      
-                        <td><?=$isi_laporan?></td>
-                        <td><?=$tgl_laporan?></td>
-                        <td><img style="width:200px" src="../masyarakat/bukti-laporan/<?=$bukti?>" alt=""></td>
-                        <td><?=$status?></td>
+                        <td><?=$laporan?></td>                      
+                        <td><?=$tgl_tanggapan?></td>
+                        <td><?=$tanggapan?></td>
+                        <td><?=$petugas?></td>
+                        <td><?=$status?></td>                        
                         <td>
-                            <a href="form-balas-pengaduan.php?id_pengaduan=<?=$data->id_pengaduan?>">Proses</a>
-                            |
-                            <a href="../action/proses-delete-pengaduan.php?id_pengaduan=<?=$data->id_pengaduan?>">Delete</a>
+                            <a href="../action/proses-update-status-selesai.php?id_pengaduan=<?=$data->id_pengaduan?>">Selesai</a>
                         </td>
                     </tr>
 

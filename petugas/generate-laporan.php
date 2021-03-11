@@ -3,8 +3,9 @@
     require __DIR__ . "/../class/userclass.php";
 
     $userclass = new userclass($conn);
-    $datapengaduan = $userclass->dataPengaduan();
-    $datauser = $userclass->dataPetugas();
+    $datapengaduan = $userclass->datalaporan();
+
+   
 
 ?>
 <!DOCTYPE html>
@@ -16,14 +17,6 @@
     <title>Document</title>
 </head>
 <body>
-    <p>SELAMAT DATANG PETUGAS <b><?=$datauser->nama_petugas?></b></p>
-    <div class="sidebar">
-        <ul>
-            <li><a href="dashboard-petugas.php"> Data Pengaduan</a></li>
-            <li><a href="view-data-terkirim.php">Data Terkirim</a></li>
-            <li><a href="generate-laporan.php">Generate Laporan</a></li>
-        </ul>
-    </div>
     <div class="konten">
             <table callspan ="2" cellpadding = "5" border="2" text-align = "center">
                 <th>No</th>
@@ -32,7 +25,7 @@
                 <th>Tanggal Pengaduan</th>
                 <th>Bukti Laporan</th>
                 <th>Status</th>
-                <th>Aksi</th>
+               
             
                 <?php
                     $no = 1;
@@ -50,11 +43,7 @@
                         <td><?=$tgl_laporan?></td>
                         <td><img style="width:200px" src="../masyarakat/bukti-laporan/<?=$bukti?>" alt=""></td>
                         <td><?=$status?></td>
-                        <td>
-                            <a href="form-balas-pengaduan.php?id_pengaduan=<?=$data->id_pengaduan?>">Proses</a>
-                            |
-                            <a href="../action/proses-delete-pengaduan.php?id_pengaduan=<?=$data->id_pengaduan?>">Delete</a>
-                        </td>
+                       
                     </tr>
 
                 <?php }?>
@@ -62,4 +51,4 @@
 
     </div>
 </body>
-</html>
+</html> 

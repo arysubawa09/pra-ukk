@@ -4,6 +4,7 @@ require __DIR__ . "/../class/userclass.php";
 
 $userclass = new userclass($conn);
 
+$userdata = $userclass->userData();
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +18,7 @@ $userclass = new userclass($conn);
 <body>
     <div class="header"> 
         <p>Website Pengaduan Masyarakat</p>
+        <p>Selamat Datang <?=$userdata->nama?></p>
     </div>
     <p><a href="../action/logout-masyarakat.php">LOGOUT</a></p>
     <div class="content">
@@ -29,7 +31,7 @@ $userclass = new userclass($conn);
             <input type="date" name="tanggal-pengaduan" required>
             <br>
             <br>
-            <p> Bukti Foto Laporan </p>
+            <p> Foto(opsional) </p>
             <br>
         <input type="file" name="gambar" accept = "image/*" >
         <br><br>

@@ -20,13 +20,12 @@
         $pengaduan = $userclass->addPengaduan($isi_laporan,$tgl_pengaduan,$nama_file);
 
         if($pengaduan){
-                echo "<script>alert('Laporan Berhasil Terkirim')</script>";
+                echo "<script>alert('Laporan Berhasil Terkirim');document.location.href='../masyarakat/page-masyarakat.php'</script>";
         }
         else{
-                echo "<script>alert('Nik dan Password Invalid')";
+                echo "<script>alert('Laporan Gagal Terkirim');document.location.href='../masyarakat/page-masyarakat.php'</script>";
         }
 
     }
-    echo $_SESSION['nik'];
-    
+  
 ?>

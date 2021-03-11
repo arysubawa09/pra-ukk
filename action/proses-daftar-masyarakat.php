@@ -19,7 +19,7 @@
             echo "<script>alert('daftar berhasil');document.location.href='../index.php'</script>";
         }else{
               
-            echo "<script>alert('nik sudah terdaftar');document.location.href='/../masyarakat/form-daftar-user.php'</script>";
+            echo "<script>alert('nik sudah terdaftar');document.location.href='../masyarakat/form-daftar-user.php'</script>";
         }
 
     }
