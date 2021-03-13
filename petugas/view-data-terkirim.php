@@ -21,6 +21,7 @@
         <ul>
             <li><a href="dashboard-petugas.php"> Data Pengaduan</a></li>
             <li><a href="view-data-terkirim.php">Data Terkirim</a></li>
+            <li><a href="generate-laporan.php">Generate Laporan</a></li>
         </ul>
     </div>
     <div class="konten">

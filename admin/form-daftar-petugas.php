@@ -35,7 +35,6 @@
             <br>
             <select name="level" >
                 <option value="petugas">Petugas</option>
-                <option value="admin">Admin</option>
             </select>
             <br>
             <br>

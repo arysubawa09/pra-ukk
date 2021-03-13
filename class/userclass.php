@@ -190,7 +190,7 @@
         }
 
         public function dataPengaduan(){
-            $result = $this->conn->query("SELECT * FROM pengaduan WHERE status = '0' ORDER BY id_pengaduan DESC");
+            $result = $this->conn->query("SELECT * FROM pengaduan  ORDER BY id_pengaduan DESC");
             if($result->rowCount() > 0){
 
                 while($rows = $result->fetch(PDO::FETCH_OBJ))
@@ -280,8 +280,8 @@
                 return 'false';
         }
 
-        public function datalaporan(){
-            $result = $this->conn->query("SELECT * FROM pengaduan ORDER BY id_pengaduan DESC");
+        public function datalaporan($id_pengaduan){
+            $result = $this->conn->query("SELECT * FROM tanggapan INNER JOIN pengaduan WHERE id_pengaduan = $id_pengaduan ORDER BY id_tanggapan DESC");
             if($result->rowCount() > 0){
 
                 while($rows = $result->fetch(PDO::FETCH_OBJ))

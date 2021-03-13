@@ -17,7 +17,7 @@
 
         if($daftar){
 
-                echo "<script>alert('daftar berhasil');document.location.href='../admin/dashboard-petugas.php'</script>"; 
+                echo "<script>alert('daftar berhasil');document.location.href='../admin/dashboard-admin.php'</script>"; 
                 
         }else{
         
