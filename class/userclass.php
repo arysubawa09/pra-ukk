@@ -214,7 +214,7 @@
         }
 
         public function PengaduanData($id_pengaduan){
-            $result = $this->conn->query("SELECT * FROM pengaduan WHERE id_pengaduan = '$id_pengaduan' LIMIT 1");
+            $result = $this->conn->query("SELECT * FROM pengaduan WHERE id_pengaduan = '$id_pengaduan' ");
 
             if($result->rowCount() > 0){
                 $data = $result->fetch(PDO::FETCH_OBJ);

@@ -16,6 +16,10 @@
     <div class="header">
         <div class="nav-user">
                 <p>Website Pengaduan Masyarakat</p>
+                        <ul>
+                            <li><a href="masyarakat/form-daftar-user.php"> Daftar </a></li>
+                            <li><a href="index.php"> Masuk</a></li>
+                        </ul>
         </div>
     </div>
     <div class="content">
@@ -40,7 +44,7 @@
             </td>
             <br>
             <br>
-            <p style="margin-top:10%;font-size:20px; text-align:center;">Belum Memiliki Akun? <span><a href="masyarakat/form-daftar-user.php">Silahkan Daftar</a></span></p>
+            <p style="margin-top:10%;font-size:20px; text-align:center;">Belum Memiliki Akun? <span><a style="color:#00810D" href="masyarakat/form-daftar-user.php">Silahkan Daftar</a></span></p>
             <div class="blok"></div>
         </form>
     </div>

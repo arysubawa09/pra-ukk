@@ -14,17 +14,26 @@ $userdata = $userclass->userData();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/masyarakat-page.css" type="text/css">
 </head>
 <body>
     <div class="header"> 
-        <p>Website Pengaduan Masyarakat</p>
-        <p>Selamat Datang <?=$userdata->nama?></p>
+        <div class="nav-user">
+            <p>Website Pengaduan Masyarakat</p>  
+            <ul>
+                <li><a href="../action/logout-masyarakat.php">Logout</a></li>
+                <li><p style="font-size:16px; margin-top:-16px">Selamat Datang  <?=$userdata->nama?></p></li>
+            </ul>
+        </div>
     </div>
-    <p><a href="../action/logout-masyarakat.php">LOGOUT</a></p>
     <div class="content">
+        <p style="font-size:20px; text-align:center; color:#00801D;">FORM PENGADUAN MASYARAKAT</p>
         <form action="../action/proses-pengaduan-masyarakat.php" method="POST" enctype="multipart/form-data">
+            <br>
+            <br>
             <p>Laporan Pengaduan</p>
-            <textarea name="pengaduan"  cols="60" rows="10"></textarea>
+            <br>
+            <textarea name="pengaduan"  cols="90" rows="10"></textarea>
             <br>
             <br>
             <p>Tanggal Pengaduan</p>
@@ -32,11 +41,13 @@ $userdata = $userclass->userData();
             <br>
             <br>
             <p> Foto(opsional) </p>
+            <input type="file" name="gambar" accept = "image/*" >
             <br>
-        <input type="file" name="gambar" accept = "image/*" >
-        <br><br>
-        <input type="submit" value="kirim" name="kirim">
+            <br>
+            <input class="button" type="submit" value="kirim" name="kirim">
+            <input class="button" type="submit" value="batal" name="batal">
         </form>
     </div>
+    <br>
 </body>
 </html>

@@ -3,7 +3,7 @@
     padding:0;  
 }
 .header{
-    background-color: #00810D;
+    background-color: #38ACEF;
     height:60px;
     width: 100%;
 }
@@ -29,7 +29,7 @@
     padding: 10px;
     width: 96%;
     margin-top:3%;
-    background-color: #00810D;
+    background-color: #38ACEF;
     border-radius: 5px;
     
 
@@ -42,12 +42,12 @@
     margin-top: 50px;
     margin-left: 4px;
     background-color: white;
-    color: #00810D;
+    color: #38ACEF;
     cursor: pointer;
 }
 
 .content form p{
-    color:#00810D;
+    color:#38ACEF;
 }
 
 .content .text{
@@ -58,7 +58,7 @@
 .blok{
     width: 19.9%;
     height: 77vh;
-    background-color: #00810D;
+    background-color: #38ACEF;
     position: absolute;
     left: 65%;
     top: 19%;

@@ -1,0 +1,29 @@
+*{
+    margin:0%;
+    padding: 0%;
+
+}
+
+.header{
+    height: 50px;
+    background-color: #38ACEF;
+}
+
+.header ul li{
+    float: right;
+    height: 100px;
+    list-style: none;
+    margin-top: -70px;
+    margin-right: 20px;
+
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+}
+
+.tabel a{
+   text-decoration: none;
+   color: #38ACEF;
+}

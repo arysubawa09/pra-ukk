@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    height: 50px;
+    background-color: #38ACEF;
+    color: white;
+}
+
+.header p{
+    padding: 15px;
+}
+
+.content form{
+    width: 30%;
+    height: 400px;
+    border: solid black;
+    margin: auto;
+    padding: 30px;
+    margin-top:50px;
+  
+}
+
+.content input{
+    width: 60%;
+    padding: 10px;
+    background-color: #38ACEF;
+    color: white;
+}
+
+.content .button{
+    background-color: white;
+    color: #38ACEF;
+    text-decoration: none;
+    width: 30%;
+    padding: 2px;
+    margin-right: 20px;
+}
+
+.content p{
+    color: #38ACEF;
+}
+
+
+
