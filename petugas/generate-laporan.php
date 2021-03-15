@@ -3,8 +3,8 @@
     require __DIR__ . "/../class/userclass.php";
 
     $userclass = new userclass($conn);
-    $id_pengaduan = $_GET['id_pengaduan'];
-    $datapengaduan = $userclass->datalaporan($id_pengaduan);
+    
+    $datapengaduan = $userclass->datalaporan();
 
    
 
@@ -19,12 +19,11 @@
 </head>
 <body>
     <div class="konten">
-            <table callspan ="2" cellpadding = "5" border="2" text-align = "center">
+            <table callspan ="2" cellpadding = "5" border="2" text-align= "center">
                 <th>No</th>
                 <th>Nik</th>
                 <th>Tanggal Pengaduan</th>
                 <th>Isi Laporan</th>
-                <th>Tanggapan</th>
                 <th>Tanggapan</th>
                
             
@@ -35,7 +34,7 @@
                         $isi_laporan = $data->isi_laporan;
                         $tgl_laporan = $data->tgl_pengaduan;
                         $tanggapan = $data->tanggapan;
-                        $tanggapan1 = $data->datalaporan($id_pengaduan);
+                        
                 ?>
                     <tr>
                         <td><?=$no++?></td>
@@ -43,14 +42,16 @@
                         <td><?=$tgl_laporan = date('d / m / Y')?></td>
                         <td><?=$isi_laporan?></td>
                         <td><?=$tanggapan?></td>
-                        <td><?=$tanggapan1?></td>
    
                        
                     </tr>
 
                 <?php }?>
             </table>
-
     </div>
+
+    <script>
+		window.print();
+	</script>
 </body>
 </html> 

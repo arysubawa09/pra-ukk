@@ -254,7 +254,7 @@
         }
 
         public function viewTanggapan(){
-            $result = $this->conn->query("SELECT * FROM tanggapan INNER JOIN pengaduan WHERE status = 'proses' ORDER BY id_tanggapan DESC");
+            $result = $this->conn->query("SELECT pengaduan.* , tanggapan.* FROM pengaduan INNER JOIN tanggapan ON pengaduan.id_pengaduan = tanggapan.id_pengaduan WHERE status = 'proses' ORDER BY id_tanggapan DESC");
 
             if($result->rowCount() > 0){
 
@@ -280,8 +280,8 @@
                 return 'false';
         }
 
-        public function datalaporan($id_pengaduan){
-            $result = $this->conn->query("SELECT * FROM tanggapan INNER JOIN pengaduan WHERE id_pengaduan = $id_pengaduan ORDER BY id_tanggapan DESC");
+        public function datalaporan(){
+            $result = $this->conn->query("SELECT tanggapan.*, pengaduan.* FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan = pengaduan.id_pengaduan  ORDER BY id_tanggapan DESC");
             if($result->rowCount() > 0){
 
                 while($rows = $result->fetch(PDO::FETCH_OBJ))
@@ -291,6 +291,16 @@
                     return $data;
             }
                     return false;
+        }
+
+        public function id_pengaduan(){
+            $result = $this->conn->query("SELECT * FROM tanggapan");
+
+            if($result->rowCount() > 0){
+                return true;
+            }
+
+            return false;
         }
     }
 

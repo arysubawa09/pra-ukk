@@ -5,6 +5,7 @@
     $userclass = new userclass($conn);
     $datatanggapan = $userclass->viewTanggapan();
     $datauser = $userclass->dataPetugas();
+    $id_pengaduan = $userclass->id_pengaduan();
 
 ?>
 <!DOCTYPE html>
@@ -45,7 +46,7 @@
                 ?>
                     <tr>
                         <td><?=$no++?></td>
-                        <td><?=$laporan?></td>                      
+                        <td><?=$laporan = $id_pengaduan?></td>                      
                         <td><?=$tgl_tanggapan?></td>
                         <td><?=$tanggapan?></td>
                         <td><?=$petugas?></td>
