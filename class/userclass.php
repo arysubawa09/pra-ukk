@@ -146,7 +146,7 @@
         }
 
         public function dataAll(){
-            $result = $this->conn->query("SELECT * FROM petugas");
+            $result = $this->conn->query("call`ambil_petugas`()");
 
             if($result->rowCount() > 0){
 
@@ -223,6 +223,7 @@
             }
                 return false;
         }
+
         public function tanggapan($id_pengaduan, $tgl_tanggapan, $tanggapan){
             $tglTanggapan = date('Y-m-d',strtotime($tgl_tanggapan));
             $id_petugas = $_SESSION['id_petugas'];
