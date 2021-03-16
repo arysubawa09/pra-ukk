@@ -280,8 +280,19 @@
                 return 'false';
         }
 
-        public function datalaporan(){
-            $result = $this->conn->query("SELECT tanggapan.*, pengaduan.* FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan = pengaduan.id_pengaduan  ORDER BY id_tanggapan DESC");
+        public function datalaporan($bulan = null, $status =  null, $tahun = null){
+            if($bulan == null && $status == null && $tahun = null){
+                $where = '';
+            }else if($bulan != null &&  $status == null && $tahun != null){
+                $where = "WHERE YEAR(pengaduan.tgl_pengaduan) = $tahun AND MONTH(pengaduan.tgl_pengaduan) = $bulan ";
+            }else if($bulan == null && $status != null && $tahun == null){
+                $where = "WHERE pengaduan.status = $status";
+            }else{
+                $where = "WHERE pengaduan.status = $status AND YEAR(pengaduan.tgl_pengaduan) = $tahun AND MONTH(pengaduan.tgl_pengaduan) = $bulan";
+            }
+            
+            $result = $this->conn->query("SELECT tanggapan.*, pengaduan.* FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan = pengaduan.id_pengaduan $where  ORDER BY id_tanggapan DESC");
+
             if($result->rowCount() > 0){
 
                 while($rows = $result->fetch(PDO::FETCH_OBJ))
@@ -291,6 +302,7 @@
                     return $data;
             }
                     return false;
+        
         }
 
         public function id_pengaduan(){

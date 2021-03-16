@@ -31,6 +31,11 @@
         <br>
     </div>
     <div class="tabel">
+        <?php
+            if(count($dataAll) > 0){
+
+            
+        ?>
         <table style="padding:5px; width:80%; text-align:center; height:50vh; margin:auto; color:#38ACEF;" callspan="2" cellpadding="5" border="1" text-align="center">
                 <th>No</th>
                 <th>Nama Petugas</th>
@@ -65,6 +70,11 @@
                 </tr>
                 <?php }?>
         </table>
+        <?php 
+            }else{
+                echo "data kosong";
+            }
+        ?>
     </div>
 </body>
 </html>

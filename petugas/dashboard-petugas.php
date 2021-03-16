@@ -21,7 +21,7 @@
         <ul>
             <li><a href="dashboard-petugas.php"> Data Pengaduan</a></li>
             <li><a href="view-data-terkirim.php">Data Terkirim</a></li>
-            <li><a href="generate-laporan.php">Generate Laporan</a></li>
+            <li><a href="form-filter-laporan.php">Generate Laporan</a></li>
             <p><a href="../action/logout-petugas.php">LOGOUT</a></p>
         </ul>
     </div>
@@ -52,8 +52,13 @@
                         <td><img style="width:40%" src="../masyarakat/bukti-laporan/<?=$bukti?>" alt=""></td>
                         <td><?=$status?></td>
                         <td>
-                            <a href="form-balas-pengaduan.php?id_pengaduan=<?=$data->id_pengaduan?>">Proses</a>
+                        <?php
+                            if($status == '0' OR $status == 'proses'):
+
+                        ?>       
+                            <a href="form-balas-pengaduan.php?id_pengaduan=<?=$data->id_pengaduan ?>">Proses</a>
                             |
+                        <?php endif?>
                             <a href="../action/proses-delete-pengaduan.php?id_pengaduan=<?=$data->id_pengaduan?>">Delete</a>
                         </td>
                     </tr>
