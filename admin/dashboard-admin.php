@@ -32,9 +32,7 @@
     </div>
     <div class="tabel">
         <?php
-            if(count($dataAll) > 0){
-
-            
+            if($dataAll != false){
         ?>
         <table style="padding:5px; width:80%; text-align:center; height:50vh; margin:auto; color:#38ACEF;" callspan="2" cellpadding="5" border="1" text-align="center">
                 <th>No</th>
@@ -43,7 +41,7 @@
                 <th>No.Telpon</th>
                 <th>Level</th>
                 <th>Aksi</th>
-
+                
                 <?php
                     $no = 1;
                     
@@ -72,7 +70,7 @@
         </table>
         <?php 
             }else{
-                echo "data kosong";
+                echo "<script>alert('Data Kosong, Mohon Mengisi Data Terlebih Dahulu');document.location.href='form-daftar-petugas.php'</script>";
             }
         ?>
     </div>

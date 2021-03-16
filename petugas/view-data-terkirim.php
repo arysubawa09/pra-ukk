@@ -26,6 +26,7 @@
         </ul>
     </div>
     <div class="konten">
+        <?php if($datatanggapan != false){ ?>
             <table callspan ="2" cellpadding = "5" border="2" text-align = "center">
                 <th>No</th>
                 <th>id laporan</th>
@@ -58,7 +59,9 @@
 
                 <?php }?>
             </table>
-
+        <?php }else{
+            echo "data kosong";
+        }  ?>
     </div>
 </body>
 </html>
