@@ -23,9 +23,9 @@
         <br>
         <br>
             <ul>
-            <li><a href="../action/logout-petugas.php">Logout</a></li>
-            <li><a href="dashboard-admin.php">Data Petugas</a></li>
-            <li><a href="form-daftar-petugas.php">Membuat Akun Petugas</a></li>
+                <li><a href="../action/logout-petugas.php">Logout</a></li>
+                <li><a href="dashboard-admin.php">Data Petugas</a></li>
+                <li><a href="form-daftar-petugas.php">Membuat Akun Petugas</a></li>
             </ul>
         <br>
         <br>

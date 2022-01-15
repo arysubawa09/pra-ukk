@@ -14,28 +14,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/petugas-balas-page.css">
 </head>
 <body>
     <div class="header">
-        <div class="nav-user">
-                <p>Membalas laporan Masyarakat</p>
-        </div>
+            <p style="color:white; padding:15px">Membalas laporan Masyarakat</p>
     </div>
     <div class="content">
         <form action="../action/proses-balas-pengaduan.php" method = "POST">
-            <p>Laporan</p>
-            <p><?=$datapengaduan->isi_laporan?></p>
+            <p>Laporan :</p>
             <br>
-            <p>Tanggal Tanggapan</p>
+            <p style="background-color:#38ACEF; color:white; padding:5px;"><?=$datapengaduan->isi_laporan?></p>
+            <br>
+            <p>Tanggal Tanggapan :</p>
+            <br>
             <input type="date" name="tgl_tanggapan" required>
             <br>
             <br>
-            <p>Tanggapan</p>
-            <textarea name="tanggapan" id="" cols="50" rows="10"  ></textarea> 
+            <p>Tanggapan :</p>
+            <br>
+            <textarea name="tanggapan" id="" cols="90" rows="10"  ></textarea> 
             <br>
             <br>
-            <input type="submit" name="kirim" value="kirim" >
-            <button name="kembali"><a href="dashboard-petugas.php">kembali</a></button>
+            <input class="button" type="submit" name="kirim" value="kirim" >
+            <button class="button" name="kembali"><a href="dashboard-petugas.php">kembali</a></button>
             <input type="hidden" name="id_pengaduan" value="<?= $datapengaduan->id_pengaduan?>">
             <br>
             

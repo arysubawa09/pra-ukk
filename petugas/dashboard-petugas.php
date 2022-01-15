@@ -58,7 +58,6 @@
                             <td>
                             <?php
                                 if($status == '0'):
-
                             ?>       
                                 <a style="text-decoration:none; color:green;" href="form-balas-pengaduan.php?id_pengaduan=<?=$data->id_pengaduan ?>">Proses</a>
                                 |

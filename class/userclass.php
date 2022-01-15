@@ -88,24 +88,23 @@
 
         }
 
-        public function loginPetugas($username, $password){
-            
-            $cekLogin = $this->conn->query("SELECT * FROM petugas WHERE username = '$username'");
-            if($cekLogin->rowCount() > 0){
+        public function LoginPetugas($username, $password){
+            $ceklogin = $this->conn->query("SELECT * FROM petugas WHERE username = '$username'");
 
-              $user  = $cekLogin->fetch(PDO::FETCH_OBJ);
+            if($ceklogin->rowCount() > 0){
 
-              $passwordUser = $user->password;
+                $user = $ceklogin->fetch(PDO::FETCH_OBJ);
+                
+                $passworduser = $user->password;
 
-              if(password_verify($password, $passwordUser)){
-                $_SESSION['level'] = $user->level;
-                $_SESSION['id_petugas'] = $user->id_petugas;
+                if(password_verify($password, $passworduser)){
+                    $_SESSION['level'] = $user->level;
+                    $_SESSION['id_petugas'] = $user->id_petugas;
 
-                return true;
-              }
-              
+                    return true;
+                }
+                    return false;
             }
-                return false;
         }
 
         public function addPetugas($nama_petugas, $username, $password, $telpon, $level){
@@ -282,8 +281,8 @@
         }
 
         public function datalaporan($bulan = null, $status =  null, $tahun = null){
-            if($bulan == null && $status == null && $tahun = null){
-                $where = '';
+            if($bulan == null && $status == null && $tahun == null){
+                $where = "";
             }else if($bulan != null &&  $status == null && $tahun != null){
                 $where = "WHERE YEAR(pengaduan.tgl_pengaduan) = $tahun AND MONTH(pengaduan.tgl_pengaduan) = $bulan ";
             }else if($bulan == null && $status != null && $tahun == null){
@@ -292,7 +291,7 @@
                 $where = "WHERE pengaduan.status = $status AND YEAR(pengaduan.tgl_pengaduan) = $tahun AND MONTH(pengaduan.tgl_pengaduan) = $bulan";
             }
             
-            $result = $this->conn->query("SELECT tanggapan.*, pengaduan.* FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan = pengaduan.id_pengaduan $where  ORDER BY id_tanggapan DESC");
+            $result = $this->conn->query("SELECT pengaduan.* ,tanggapan.* FROM tanggapan INNER JOIN pengaduan ON pengaduan.id_pengaduan = tanggapan.id_pengaduan $where  ORDER BY id_tanggapan DESC");
 
             if($result->rowCount() > 0){
 

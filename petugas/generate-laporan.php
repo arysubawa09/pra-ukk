@@ -9,7 +9,6 @@
 
     $datapengaduan = $userclass->datalaporan($bulan, $status,$tahun);
 
-   
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Generate Laporan</title>
 </head>
 <body>
     <div class="konten">
@@ -32,6 +31,7 @@
                 <th>Tanggal Pengaduan</th>
                 <th>Isi Laporan</th>
                 <th>Tanggapan</th>
+                <th>Status</th>
                
                 <?php
                         $no = 1;
@@ -40,14 +40,15 @@
                             $isi_laporan = $data->isi_laporan;
                             $tgl_laporan = $data->tgl_pengaduan;
                             $tanggapan = $data->tanggapan;
-                            
+                            $status = $data->status;
                 ?>
                         <tr>
                             <td><?=$no++?></td>
                             <td><?=$nik?></td>                      
                             <td><?=$tgl_laporan = date('d / m / Y')?></td>
                             <td><?=$isi_laporan?></td>
-                            <td><?=$tanggapan?></td>        
+                            <td><?=$tanggapan?></td>  
+                            <td><?=$status?></td>      
                         </tr>
 
                 <?php }?>

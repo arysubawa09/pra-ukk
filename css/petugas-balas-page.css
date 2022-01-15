@@ -1,0 +1,51 @@
+*{
+    margin:0%;
+    padding: 0%;
+
+}
+
+.header{
+    height: 50px;
+    background-color: #38ACEF;
+}
+
+.content{
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.content form{
+    border: solid #38ACEF;
+    padding: 10px;
+    height: 70vh;
+}
+
+.content input{
+    width: 98%;
+    background-color: #38ACEF;
+    color: white;
+    padding: 5px;
+}
+
+.content .button{
+    width: 40%;
+    padding: 5px;
+    margin-left: 39px;
+    background-color: #38ACEF;
+    color: white;
+}
+
+.button a{
+    text-decoration: none;
+    color: white;
+}
+
+.content p{
+    color: #38ACEF;
+}
+
+textarea{
+    color: #38ACEF;
+}
